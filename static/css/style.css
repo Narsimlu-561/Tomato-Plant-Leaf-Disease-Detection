@@ -1,0 +1,305 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    
+
+    body {
+      background-color: #f0f2f5;   /* light gray background */
+    }
+
+    .upload-section, .results-section, .model-info {
+      background: white;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      transition: transform 0.2s ease;
+    }
+
+    .upload-section:hover, .results-section:hover, .model-info:hover {
+      transform: translateY(-5px);
+    }
+
+    #browseBtn {
+      background-color: #e74c3c;
+      color: #fff;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+    }
+
+    #browseBtn:hover {
+      background-color: #c0392b;
+    }
+
+
+    /* body {
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    } */
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      color: #e74c3c;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+
+    /* Combined Upload and Results Container */
+    .upload-results-container {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .upload-results-container {
+        flex-direction: column;
+      }
+    }
+
+    /* Upload Section */
+    .upload-section {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      flex: 1;
+    }
+
+    .upload-section h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .upload-results-container {       /* changes  */
+      display: flex;
+      flex-direction: column;
+      align-items: center;   
+      gap: 30px;
+    }
+
+    .upload-section, .results-section {     /* changes  */
+      width: 90%;   /* adjust width */
+      max-width: 1200px;
+    }
+
+    .drop-area {
+      /* border: 2px dashed #bdc3c7; */
+      border-radius: 8px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .drop-area.highlight {
+      border-color: #e74c3c;
+      background-color: rgba(231, 76, 60, 0.05);
+    }
+
+    .drop-area .icon {
+      font-size: 48px;
+      color: #bdc3c7;
+      margin-bottom: 15px;
+    }
+
+    .drop-area p {
+      margin-bottom: 20px;
+      color: #7f8c8d;
+    }
+
+    #browseBtn {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #browseBtn:hover {
+      background-color: #c0392b;
+    }
+
+    /* Results Section */
+    .results-section {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      flex: 1;
+    }
+
+    .results-section.hidden {
+      display: none;
+    }
+
+    .results-section h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .results-container {
+      display: flex;
+      gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .results-container {
+        flex-direction: column;
+      }
+    }
+
+    .image-preview {
+      flex: 1;
+    }
+
+    .image-preview img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      max-height: 300px;
+      object-fit: contain;
+    }
+
+    .diagnosis {
+      flex: 1;
+    }
+
+    #diseaseName {
+      color: #e74c3c;
+      margin-bottom: 15px;
+    }
+
+    .confidence {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .confidence-meter {
+      flex-grow: 1;
+      height: 10px;
+      background-color: #ecf0f1;
+      border-radius: 5px;
+      margin-right: 15px;
+      overflow: hidden;
+    }
+
+    .confidence-fill {
+      height: 100%;
+      background-color: #2ecc71;
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+
+    #confidenceValue {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .description {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .recommendations h4 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .recommendations ul {
+      padding-left: 20px;
+    }
+
+    .recommendations li {
+      margin-bottom: 8px;
+    }
+
+    /* Model Info Section */
+    .model-info {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .model-info h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .model-info p {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .model-stats {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .model-stats {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #e74c3c;
+      display: block;
+    }
+
+    .label {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }

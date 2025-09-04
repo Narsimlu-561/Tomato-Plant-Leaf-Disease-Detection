@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tomato Leaf Detector</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='images/tomato.png') }}" type="image/x-icon">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Tomato Leaf Disease Detection</h1>
+      <p class="subtitle">Using Deep Learning for Early Disease Identification</p>
+    </header>
+
+    <main>
+      <div class="upload-results-container">
+        <!-- Upload Section -->
+        <div class="upload-section">
+          <h2>Upload Tomato Leaf Image</h2>
+          <div class="drop-area" id="dropArea">
+            <input type="file" id="fileInput" accept="image/*" hidden>
+            <div class="icon">
+              <i class="fas fa-cloud-upload-alt"></i>
+            </div>
+            <p>Drag & drop an image here or click to browse</p>
+            <button id="browseBtn">Browse Files</button>
+          </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section hidden" id="resultsSection">
+          <h2>Analysis Results</h2>
+          <div class="results-container">
+            <div class="image-preview">
+              <img id="previewImage" src="#" alt="Preview">
+            </div>
+            <div class="diagnosis">
+              <h3 id="diseaseName">Disease Name</h3>
+              <div class="confidence">
+                <div class="confidence-meter">
+                  <div class="confidence-fill" id="confidenceFill"></div>
+                </div>
+                <span id="confidenceValue">0%</span>
+              </div>
+              <div class="description" id="diseaseDescription">
+                Upload a tomato leaf image to analyze.
+              </div>
+              <div class="recommendations">
+                <h4>Recommendations</h4>
+                <ul id="recommendationsList">
+                  <li>Waiting for analysis...</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Model Info -->
+      <div class="model-info">
+        <h2>About Our Technology</h2>
+        <p>
+          Our system is powered by a lightweight CNN enhanced with Efficient Channel Attention layers trained on PlantVillage dataset, achieving over 97% accuracy designed specifically for tomato leaf disease detection.
+        </p>
+        <div class="model-stats">
+          <div class="stat">
+            <span class="number">97%</span>
+            <span class="label">Accuracy</span>
+          </div>
+          <div class="stat">
+            <span class="number">10</span>
+            <span class="label">Diseases Detected</span>
+          </div>
+          <div class="stat">
+            <span class="number">50k+</span>
+            <span class="label">Training Images</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </div>
+</body>
+</html>
